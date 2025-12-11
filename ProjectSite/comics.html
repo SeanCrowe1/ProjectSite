@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="style" rel="stylesheet" href="./css/light.css"/>
+    <script src="./scripts/cookies.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="./images/favicon.png"/>
+    <title>HiveMind Comics</title>
+</head>
+<body class="comics">
+    <header>
+        <h1 id="pageTitle">
+            Comics
+        </h1>
+        
+        <div class="topnav" id="myTopnav">
+            <a href="index.html">Home</a>
+            <a href="comics.html" class="active">Comics</a>
+            <a href="games.html">Games</a>
+            <a href="events.html">Events</a>
+            <a href="cart.html">Cart</a>
+            <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </header>
+    <div id="seperator"><br><br><br><br><br><br></div>
+    <main>
+        <div class="buttonsContainer">
+            <button class="selector" onclick="displayComics('Marvel')">Marvel</button>
+            <button class="selector" onclick="displayComics('DC')">DC</button>
+            <button class="selector" onclick="displayComics('Indie')">Indie</button>
+        </div>
+        <br><br><br><br>
+        <div id="comics">
+            <div class="container">
+                <img class="comicImage">
+                <p class="comicInfo">
+                    <h3 class="title">This is the title</h3>
+                    <h4 class="price">This is the price</h4>
+                    This is the item description
+                </p>
+            </div>
+            <br><br>
+            <div class="container"><img class="comicImage"><p class="comicInfo"></p></div>
+            <br><br>
+            <div class="container"><img class="comicImage"><p class="comicInfo"></p></div>
+            <br><br>
+            <div class="container"><img class="comicImage"><p class="comicInfo"></p></div>
+            <br><br>
+            <div class="container"><img class="comicImage"><p class="comicInfo"></p></div>
+        </div>
+    </main>
+    <footer>
+        <button class="mode-toggle-day" aria-label="Light/Dark Mode Toggle">
+            ☼
+        </button>
+    </footer>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>

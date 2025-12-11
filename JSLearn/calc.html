@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link id="style" rel="stylesheet" href="./styles/light.css"/>
+    <link rel="icon" href="./images/js.png"/>
+    <title>Calculator</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Calculator
+        </h1>
+
+        <div class="topnav" id="myTopnav">
+            <a href="index.html">Home</a>
+            <a href="calc.html" class="active">Calculator</a>
+            <a href="dice.html">Dice</a>
+            <a href="news.html">News</a>
+            <a href="something.html">Something</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </header>
+    <br><br><br><br>
+    <main>
+        <center>
+            <div class="calculator">
+                <div class="div1">Display</div>
+                <div class="div2" onclick="calcClear()"> AC </div>
+                <div class="div3" onclick="calcInput('div3')" value="√">
+                    <button onclick="calcInput('div3')" value="√"> √
+                </div>
+                <div class="div4" onclick="calcInput('div4')" value="%"> % </div>
+                <div class="div5" onclick="calcInput('div5')" value="/"> / </div>
+                <div class="div6" onclick="calcInput('div6')" value="7"> 7 </div>
+                <div class="div7" onclick="calcInput('div7')" value="8"> 8 </div>
+                <div class="div8" onclick="calcInput('div8')" value="9"> 9 </div>
+                <div class="div9" onclick="calcInput('div9')" value="*"> * </div>
+                <div class="div10" onclick="calcInput('div10')" value="4"> 4</div>
+                <div class="div11" onclick="calcInput('div11')" value="5"> 5 </div>
+                <div class="div12" onclick="calcInput('div12')" value="6"> 6</div>
+                <div class="div13" onclick="calcInput('div13')" value="-"> - </div>
+                <div class="div14" onclick="calcInput('div14')" value="1"> 1</div>
+                <div class="div15" onclick="calcInput('div15')" value="2"> 2</div>
+                <div class="div16" onclick="calcInput('div16')" value="3"> 3</div>
+                <div class="div17" onclick="calcInput('div17')" value="+"> + </div>
+                <div class="div18" onclick="calcInput('div18')" value="0"> 0 </div>
+                <div class="div19" onclick="calcInput('div19')" value=","> , </div>
+                <div class="div20" onclick="calcResult(inputSum)"> = </div>
+            </div>
+        </center>
+    </main>
+    <footer class="site-footer">
+        <button class="mode-toggle-day" aria-label="Light/Dark Mode Toggle">
+            ☼
+        </button>
+    </footer>
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

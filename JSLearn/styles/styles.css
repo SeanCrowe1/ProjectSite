@@ -1,0 +1,117 @@
+/* Base page styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: darkblue;
+  color: #333;
+}
+
+/* Header and nav */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #004b8d;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+/* Mobile menu button (shown on small screens) */
+.menu-toggle {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Nav – mobile first: hidden by default, shown when JS adds .open */
+.main-nav {
+  display: none;
+  width: 100%;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  background: #003666;
+}
+
+.main-nav li {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-nav a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  background: #006ad4;
+}
+
+/* When JS adds .open to nav, show it on small screens */
+.main-nav.open {
+  display: block;
+  transition: width 2s ease-in;
+}
+
+/* Main content and footer */
+.content {
+  padding: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 60vh;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  background: #222;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+/* --------- MEDIA QUERY FOR LARGER SCREENS --------- */
+@media (min-width: 768px) {
+  .site-header {
+    align-items: center;
+  }
+
+  /* Hide the button, show nav inline */
+  .menu-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    display: block;
+    width: auto;
+  }
+
+  .main-nav ul {
+    display: flex;
+    background: none;
+  }
+
+  .main-nav li {
+    border: none;
+  }
+
+  .main-nav a {
+    padding: 0.5rem 0.75rem;
+  }
+}

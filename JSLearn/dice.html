@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="style" rel="stylesheet" href="./styles/light.css"/>
+    <link rel="icon" href="./images/js.png"/>
+    <title>Dice Thrower</title>
+</head>
+
+<body class="diceBody">
+    <header>
+        <h1>
+            Dice Throwing
+
+            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">
+                    ☰
+            </button>
+        </h1>
+        
+        <nav id="main-nav" class="main-nav">
+            <ul>
+                <li><a href="something.html">Something</a></li>
+                <li><a href="news.html">News</a></li>
+                <li class="active"><a href="dice.html">Dice</a></li>
+                <li><a href="calc.html">Calculator</a></li>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br><br><br><br>
+    <main>
+    <center>
+        <div class="container">
+
+            <h2 class="diceH2" id="titleCard">Let's Play!</h2>
+
+            <div class="dice">
+                <p class=" diceP" id="Player1">Player 1</p>
+                <img id="img1" src="./images/dice1.png" height="100%">
+            </div>
+
+            <div class="dice">
+                <p class="diceP" id="Player2">Player 2</p>
+                <img id="img2" src="./images/dice1.png" height="100%">
+            </div>
+
+        </div>
+
+        <div class="container bottom">
+            <button type="button" id="diceButton" class="butn" onclick="rollTheDice()">
+                Start Rolling
+            </button>
+        </div>
+
+        <div class="container bottom">
+            <button type="bottom" class="butn" onclick="editNames()">
+                Edit Names
+            </button>
+        </div>
+    </center>
+    </main>
+
+    <footer>
+        <button class="mode-toggle-day" aria-label="Light/Dark Mode Toggle">
+            ☼
+        </button>
+    </footer>
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

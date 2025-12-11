@@ -1,0 +1,142 @@
+.treeBody {
+    color: darkgreen;
+    background-color: lightgreen;
+}
+
+.frogBody {
+    color: white;
+    background-image: url(../images/psych.jpg);
+}
+
+h1 {
+    background-color: darkgreen;
+    color: white;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 20px;
+}
+
+h2 {
+    background-color: darkblue;
+    color: white;
+    border: 2px solid black;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+h4 {
+    background-color: magenta;
+    color: white;
+    border: 2px solid black;
+    margin-left: 240px;
+    margin-right: 240px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.pTree {
+    background-color: green;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    border: 2px;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.pFrog {
+    background-color: orange;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    border: 2px;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 20px;
+}
+
+video {
+    padding: 10px;
+    background-color: green;
+    border-radius: 50px;
+    color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+form {
+    background-color: darkblue;
+    color: white;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: left;
+    float: left;
+}
+
+input[type=text], input[type=email] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+input[type=radio] {
+    text-align: left;
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+fieldset {
+    color: white;
+    display: contents;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+input[type=submit] {
+    background-color: #04AA6D;
+    border-color: red;
+    border: 2px;
+    border-radius: 10px;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.important {
+    background-color: yellow;
+    color: darkred;
+    border: 1px solid yellow;
+    margin: 10px;
+    padding: 10x;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}

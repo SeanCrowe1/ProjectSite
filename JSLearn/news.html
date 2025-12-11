@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="style" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-twilight.min.css"/>
+    <link rel="icon" href="./images/js.png"/>
+    <title>News</title>
+</head>
+<body>
+    <header>
+        <h1>
+            News
+
+            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">
+                    ☰
+            </button>
+        </h1>
+        
+        <nav id="main-nav" class="main-nav">
+            <ul>
+                <li><a href="something.html">Something</a></li>
+                <li class="active"><a href="news.html">News</a></li>
+                <li><a href="dice.html">Dice</a></li>
+                <li><a href="calc.html">Calculator</a></li>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br><br><br>
+    <body>
+        <div class="editor language-js">function fibonacci(n) {
+            let num;
+
+            if (n >= 2) {
+                num = fibonacci(n - 1) + fibonacci(n - 2);
+            } else {
+                num = n;
+            }
+
+            return num;
+        }</div>
+    </body>
+
+    <footer class="site-footer">
+        <button class="mode-toggle-day" aria-label="Light/Dark Mode Toggle">
+            ☼
+        </button>
+    </footer>
+    <script src="./scripts/script.js"></script>
+    <script type="module" id="code">
+        import {CodeJar} from "https://medv.io/codejar/codejar.js?"
+
+        const node = document.querySelector('.editor');
+
+        const rainbow = (ch, i) => {
+            let red = Math.round(Math.sin(0.01 * i + 0) * 127 + 128);
+            let green = Math.round(Math.sin(0.01 * i + 2 * Math.PI / 3) *127 + 128);
+            let blue = Math.round(Math.sin(0.01 * i + 4 * Math.PI / 3) * 127 + 128);
+            return `<span style="color:rgb(${red}, ${green}, ${blue})">{ch}</span>`;
+        };
+
+        const lolcat = editor => {
+            const code = editor.textContent
+            .split('')
+            .map(rainbow)
+            .join('');
+            editor.innerHTML = code;
+        };
+
+        const jar = CodeJar(node, lolcat);
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+</body>
+</html>

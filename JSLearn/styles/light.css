@@ -1,0 +1,341 @@
+/* Universal Stylings */
+
+body {
+    background-color: #4499d1;
+    color: black;
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+h1 {
+    background-color: #f5f5f5;
+    color: black;
+    padding: 10px;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    height: 40px;
+    width: 100%;
+    float: right;
+    font-weight: bold;
+}
+
+h2 {
+    color: black;
+    padding: 10px;
+    width: 98%;
+    left: 0;
+    justify-content: center;
+}
+
+.diceH2 {
+    margin-top: -5px;
+    text-shadow: 5px 0 #232931;
+    font-size: 72px;
+    background-color: #4499d1;
+    color: #4ecca3;
+}
+
+p {
+    padding: 10px;
+    width: 98%;
+    justify-content: center;
+}
+
+.diceP {
+    font-size: 2rem;
+    color: #1c6d52;
+}
+
+/* NavBar Stylings */
+
+.topnav {
+  position: absolute;
+  background-color: #f5f5f5;
+  overflow: hidden;
+  z-index: 5;
+  right: 0;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #333;
+  text-align: center;
+  padding: 1px 2px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .topnav a:not(.active) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+/* Light/Dark Mode Stylings */
+
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+}
+
+.mode-toggle-day {
+    position: fixed;
+    background-color: white;
+    color:black;
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+    bottom: 0;
+    left: 0;
+}
+
+/* Input Form Stylings */
+
+form {
+    background-color: purple;
+    color: white;
+    border: 2px solid black;
+    width: 500px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: -1%;
+}
+
+label {
+    font-weight: bold;
+    text-align: left;
+    float: left;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-weight: bold;
+    float: right;
+}
+
+input:focus {
+    background-color: lightblue;
+    border: 3px solid #555;
+}
+
+input[type=submit] {
+    background-color: darkorange;
+    border-color: red;
+    border: 2px;
+    border-radius: 10px;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Dice Stylings */
+
+.container {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+.dice {
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+}
+
+img {
+    max-width: 200px
+}
+
+.bottom {
+    padding-top: 30px;
+}
+
+.butn {
+    background: #4ecca3;
+    border-radius: 7px;
+    color: #ffff;
+    font-size: 30px;
+    padding: 16px 25px 16px 25px;
+    text-decoration: none;
+}
+
+.butn:hover {
+    background: #232931;
+    text-decoration: none;
+}
+
+/* Calc Stylings */
+
+.calculator {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  width: 20%;
+}
+
+.calculator>div {
+  background: #EFEFEF;
+  color: black;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 
+    2px 0 0 0 #888, 
+    0 2px 0 0 #888, 
+    2px 2px 0 0 #888,
+    2px 0 0 0 #888 inset, 
+    0 2px 0 0 #888 inset;
+    border-radius: 5px;
+}
+
+.calculator>div:hover {
+  background: lightgray;
+}
+
+.calculator .div1 {
+  grid-area: 1 / 1 / 2 / 5;
+  background: #808080;
+  color: #fff;
+  text-align: right;
+  padding-right: 20px;
+}
+.calculator .div1:hover {
+  background: #808080;
+}
+
+.div2 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.div3 {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.div4 {
+  grid-area: 2 / 3 / 3 / 4;
+}
+
+.div5 {
+  grid-area: 2 / 4 / 3 / 5;
+}
+
+.div6 {
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.div7 {
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+.div8 {
+  grid-area: 3 / 3 / 4 / 4;
+}
+
+.div9 {
+  grid-area: 3 / 4 / 4 / 5;
+}
+
+.div10 {
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+.div11 {
+  grid-area: 4 / 2 / 5 / 3;
+}
+
+.div12 {
+  grid-area: 4 / 3 / 5 / 4;
+}
+
+.div13 {
+  grid-area: 4 / 4 / 5 / 5;
+}
+
+.div14 {
+  grid-area: 5 / 1 / 6 / 2;
+}
+
+.div15 {
+  grid-area: 5 / 2 / 6 / 3;
+}
+
+.div16 {
+  grid-area: 5 / 3 / 6 / 4;
+}
+
+.div17 {
+  grid-area: 5 / 4 / 6 / 5;
+}
+
+.div18 {
+  grid-area: 6 / 1 / 7 / 3;
+}
+
+.div19 {
+  grid-area: 6 / 3 / 7 / 4;
+}
+
+.div20 {
+  grid-area: 6 / 4 / 7 / 5;
+}
+
+.editor {
+    color: #fff;
+    background: #282a36;
+    border-radius: 6px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: 400;
+    min-height: 240px;
+    letter-spacing: normal;
+    line-height: 20px;
+    padding: 10px;
+    tab-size: 4;
+}

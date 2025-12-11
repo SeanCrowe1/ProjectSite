@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="style" rel="stylesheet" href="./styles/light.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="./images/js.png"/>
+    <title>JSLearn</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Home
+        </h1>
+        
+        <div class="topnav" id="myTopnav">
+            <a href="index.html" class="active">Home</a>
+            <a href="calc.html">Calculator</a>
+            <a href="dice.html">Dice</a>
+            <a href="news.html">News</a>
+            <a href="something.html">Something</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </header>
+    <br><br><br><br>
+    <main>
+        <button onclick="OnButtonClick()">Click Me!</button>
+
+        <br><br><br><br>
+
+        <center>
+            <form onsubmit="OnFormSubmit()">
+                <label for="firstNameInput">Enter your first name:</label>
+                <input type="text" placeholder="Your first name here..." name="firstName" id="firstNameInput" value="" required>
+                <label for="lastNameInput">Enter your last name:</label>
+                <input type="text" placeholder="Your last name here..." name="lastName" id="lastNameInput" value="" required>
+                <label for="ageInput">Your age here:</label>
+                <input type="number" placeholder="Your age here..." name="age" id="ageInput" value="" required>
+                <label for="emailInput">Enter your email:</label>
+                <input type="email" placeholder="You@Mail.com" name="email" id="emailInput" value="" required>
+                <input type="submit" value="Submit Entry">
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </form>
+
+            <h2 id="responseHeader">
+
+            </h2>
+            <p id="response">
+
+            </p>
+        </center>
+    </main>
+
+    <footer class="site-footer">
+        <button class="mode-toggle-day" aria-label="Light/Dark Mode Toggle">
+            ☼
+        </button>
+    </footer>
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

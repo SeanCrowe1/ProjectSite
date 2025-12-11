@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="style" rel="stylesheet" href="./styles/light.css"/>
+    <link rel="icon" href="./images/dice1.png"/>
+    <title>Something</title>
+    <style>
+        body { background-color: lightblue; }
+        #snow{
+            background: none;
+            font-family: Androgyne;
+            background-image: url("./images/dice1.png"), url("./images/dice2.png"), url("./images/dice3.png"), url("./images/dice4.png"), url("./images/dice5.png"), url("./images/dice6.png");
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: -1;
+            -webkit-animation: snow 1000s linear infinite;
+            -moz-animation: snow 1000s linear infinite;
+            -ms-animation: snow 1000s linear infinite;
+            animation: snow 250s linear infinite;
+            -webkit-transform: translate3d(0,0,0);
+            -moz-transform: translate3d(0,0,0);
+            -ms-transform: translate3d(0,0,0);
+            -o-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+        }
+
+        @keyframes snow {
+            0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+            100% {background-position: 50000px 50000px, 10000px 20000px, -10000px 15000px;}
+        }
+
+        @-moz-keyframes snow {
+            0% {bacground-position: 0px 0px, 0px 0px, 0px 0px;}
+            100% {background-position: 50000px 50000px, 10000px 20000px, -10000px 15000px;}
+        }
+
+        @-webkit-keyframes snow {
+            0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+            100% {background-position: 50000px 50000px, 10000px 20000px, -10000px 15000px;}
+        }
+
+        @-ms-keyframes snow {
+            0% {bacground-position: 0px 0px, 0px 0px, 0px 0px;}
+            100% {background-position: 50000px 50000px, 10000px 20000px, -10000px 15000px;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            Something
+
+            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">
+                    ☰
+            </button>
+        </h1>
+        
+        <nav id="main-nav" class="main-nav">
+            <ul>
+                <li class="active"><a href="something.html">Something</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="dice.html">Dice</a></li>
+                <li><a href="calc.html">Calculator</a></li>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br><br><br><br>
+    <body>
+        <div id="snow"></div>
+    </body>
+
+    <footer class="site-footer">
+        <button class="mode-toggle-day" aria-label="Light/Dark Mode Toggle">
+            ☼
+        </button>
+    </footer>
+    <script src="./scripts/script.js"></script>
+</body>
+</html>
