@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="style" rel="stylesheet" href="./css/light.css"/>
-    <script src="./scripts/cookies.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="./images/favicon.png"/>
     <title>HiveMind Comics</title>
@@ -26,13 +25,69 @@
             </a>
         </div>
     </header>
-    <main>
-
+    <div id="seperator"><br><br><br><br><br><br></div>
+    <main id="content" class="hidden games">
+        <div class="buttonsContainer">
+            <button class="gamesSelector" onclick="displayGames('DnD')">Dungeons & Dragons</button>
+            <button class="gamesSelector" onclick="displayGames('WH')">Warhammer 40K</button>
+        </div>
+        <br><br><br><br>
+        <div id="games">
+            <div id="1" class="container">
+                <img src="./images/games/DnDDice.jpg" class="gamesImage">
+                <div class="gamesInfo">
+                    <h3 class="title">This is the title</h3>
+                    <h4 class="price">This is the price</h4>
+                    <p>This is the item description</p>
+                </div>
+            </div>
+            <br><br>
+            <div id="2" class="container">
+                <img class="gamesImage">
+                <div class="gamesInfo">
+                    <h3 class="title">This is the title</h3>
+                    <h4 class="price">This is the price</h4>
+                    <p>This is the item description</p>
+                </div>
+            </div>
+            <br><br>
+            <div id="3" class="container">
+                <img class="gamesImage">
+                <div class="gamesInfo">
+                    <h3 class="title">This is the title</h3>
+                    <h4 class="price">This is the price</h4>
+                    <p>This is the item description</p>
+                </div>
+            </div>
+            <br><br>
+            <div id="4" class="container">
+                <img class="gamesImage">
+                <div class="gamesInfo">
+                    <h3 class="title">This is the title</h3>
+                    <h4 class="price">This is the price</h4>
+                    <p>This is the item description</p>
+                </div>
+            </div>
+            <br><br>
+            <div id="5" class="container">
+                <img class="gamesImage">
+                <div class="gamesInfo">
+                    <h3 class="title">This is the title</h3>
+                    <h4 class="price">This is the price</h4>
+                    <p>This is the item description</p>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
-        <button class="mode-toggle-day" aria-label="Light/Dark Mode Toggle">
-            ☼
-        </button>
+        <div class="site-footer">
+            <button class="mode-toggle-day" aria-label="Light/Dark Mode Toggle">
+                ☼
+            </button>
+            <p>
+                Copyright 2025 Hivemind Comics
+            </p>
+        </div>
     </footer>
     <script src="./scripts/main.js"></script>
 </body>
