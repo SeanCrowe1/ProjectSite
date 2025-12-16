@@ -8,7 +8,7 @@
     <link rel="icon" href="./images/favicon.png"/>
     <title>HiveMind Comics</title>
 </head>
-<body onload="displayCart()">
+<body>
     <header>
         <h1 id="pageTitle">
             Cart
@@ -25,8 +25,12 @@
             </a>
         </div>
     </header>
-    <main>
-        <p class="currentCart"></p>
+    <div id="seperator"><br><br><br><br><br><br></div>
+    <main id="content" class="hidden cart">
+        <div id="currentCart" class="currentCart">
+
+            
+        </div>
     </main>
     <footer>
         <div class="site-footer">
@@ -34,10 +38,11 @@
                 ☼
             </button>
             <p>
-                Copyright 2025 Hivemind Comics
+                &copy; Copyright 2025 - Hivemind Comics Ltd
             </p>
         </div>
     </footer>
     <script src="./scripts/main.js"></script>
+    <script src="./scripts/products.json"></script>
 </body>
 </html>
