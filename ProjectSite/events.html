@@ -25,8 +25,57 @@
             </a>
         </div>
     </header>
+    <div id="seperator"><br><br><br></div>
     <main id="content" class="hidden events">
-        <p></p>
+        <center>
+            <h2>Upcoming Events</h2>
+            <div id="popUp" class="popUp">
+
+            </div>
+        </center>
+        <div class="eventContainer">
+            <img src="./images/events/ComicCon.jpg" class="eventImage"/>
+            <div class="eventInfo">
+                <h3>Comic-Con 2026</h3>
+                <h4>31/05/2026</h4>
+                <p>Join us for our comic-con 2026 event in May. Thanks.</p>
+            </div>
+        </div>
+        <br><br>
+        <div class="eventContainer">
+            <img src="./images/events/DnDTournament.jpg" class="eventImage"/>
+            <div class="eventInfo">
+                <h3>Dungeons & Dragons Tournament</h3>
+                <h4>28/02/2026</h4>
+                <p>Come and battle friends and foes alike in our 3rd annual Dungeons & Dragons Battle Royale Tournament</p>
+            </div>
+        </div>
+        <br><br>
+        <div class="eventContainer">
+            <img src="./images/events/WHTournament.jpg" class="eventImage"/>
+            <div class="eventInfo">
+                <h3>Warhammer 40K Tournament</h3>
+                <h4>21/02/2026</h4>
+                <p>Come and battle friends and foes alike in our 5th annual Warhammer 40,000 Battle Bracket</p>
+            </div>
+        </div>
+        <br><br>
+        <div class="eventFormContainer">
+            <div class="eventInfo">
+                <p>Please fill in the below form to register interest in our events and receive update emails about any future events being held</p>
+            </div>
+            <div class="eventForm">
+                <form id="eventForm">
+                    <label for="nameInput">Enter your name:</label>
+                    <input id="nameInput" type="text" placeholder="Enter your name here" required>
+                    <label for="emailInput">Enter your email:</label>
+                    <input id="emailInput" type="email" placeholder="You@Mail.com" required>
+                    <label for="ageInput">Enter your age:</label>
+                    <input id="ageInput" type="number" placeholder="Enter your age here" required>
+                    <input type="submit" value="Register Interest">
+                </form>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="site-footer">

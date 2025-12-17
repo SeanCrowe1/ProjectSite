@@ -207,6 +207,15 @@ function checkout(total) {
   alert(`Thank you for your purchase of €${total}`);
 }
 
+// Event Form Function
+
+if (currentClasses[1] === "events") {
+  document.getElementById("eventForm").addEventListener("submit", () => {
+    const elem = document.getElementById("popUp");
+    elem.style.display = "block";
+  }, false)
+}
+
 // Filter Functions
 
 function displayComics(category) {
