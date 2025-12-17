@@ -1,4 +1,4 @@
-// Page Constants
+// Current Page Constants
 
 const toggleLight = document.querySelector('.mode-toggle-day');
 const mode = document.getElementById('style');
@@ -17,6 +17,7 @@ function openNav() {
 
 // Shopping Cart Functions
 
+// Generating Products Array From JSON File
 let products = [];
 async function fetchProducts() {
   const res = await fetch("scripts/products.json");
@@ -24,64 +25,186 @@ async function fetchProducts() {
   return data;
 }
 
+// Fetching Product From Products Array Via ID
 function getProduct(id) {
   for (let i = 0; i < products.length; i++) {
     if (products[i].id == id) {
-      return products[i]
+      return products[i];
     }
   }
 }
 
+// Updating Cart Cookie String When Adding Products
 function addToCart(id) {
+  // Retrieve Current Cart String
   let currentCart = getCookie("cart");
+
+  // If Cart Is Empty, Just Enter 1 Of Added Product ID
   if (currentCart === "") {
-    setCookie("cart", id, 0.04);
+    // Cart Stored As JSON Objects But Cookie Stored As String
+    // Convert This JSON Object Into A String For Cookie
+    setCookie("cart", JSON.stringify({"id": id, "amount": 1}), 0.04);
     return;
   } else {
-    currentCart += `,${id}`;
+
+    // Split Full Cookie String Into Pairs Of Product IDs And Amount Already In Cart
     let items = currentCart.split(",");
-    items.sort();
-    let sortedCart = items.join(",");
-    removeCookie("cart");
-    setCookie("cart", sortedCart, 0.04);
+
+    // Loop Through Items Array By 2 Steps To Check Every Product ID
+    for(let i = 0; i < items.length; i += 2) {
+
+      // If Product ID Already In Cart, Just Increment Corresponding Amount By 1
+      if (JSON.parse(`${items[i]}}`).id == id) {
+
+        // Convert Amount String Into JSON To Increment Number Before Changing It Back To A String With The New Value
+        items[i + 1] = JSON.stringify(JSON.parse(`{${items[i + 1]}`).amount += 1);
+        JSON.stringify(items[i + 1]);
+
+        // Initialise An Array To Piece Each Pair Of Strings Back Into Their Full JSON Objects
+        let JSONitems = [];
+
+        // Loop Through Each Pair Of Strings
+        for (let j = 0; j < items.length; j += 2) {
+          let elems = [];
+
+          // If Amount Of Current Pair Was Turned Into A Full JSON Object To Increment It,
+          // Convert Back To Second Half Of The Full Product Object Before Rejoining Elements
+          if (JSON.parse(`${items[j]}}`).id == id) {
+            elems = [items[j], `"amount":${items[j + 1]}}`];
+          } else {
+            elems = [items[j], items[j + 1]];
+          }
+
+          // Rejoin Each Pair Of JSON Elements And Push String To Full Object Array
+          let item = elems.join(",");
+          JSONitems.push(item);
+        }
+
+        // Set Cookie To New Updated String Of JSON Objects
+        setCookie("cart", JSONitems, 0.04);
+        if (currentClasses[1] === "cart") {
+          displayCart();
+        }
+        return;
+      }
+    }
+
+    // If Product ID Not Already In Cart, Add New JSON Object To Cookie String
+    items += `,${JSON.stringify({"id": id, "amount": 1})}`;
+    setCookie("cart", items, 0.04);
   }
 }
 
+// Updating Cart Cookie String When Removing Products
 function removeFromCart(id) {
+  // Retrieve Current Cart String And Split Into Pairs Of Product ID And Amount In Cart
   let currentCart = getCookie("cart");
-  let items = currentCart.split(",");
-  for (let i = 0; i < items.length; i++) {
-    if (items[i] == id) {
-      items.splice(i, 1);
-      items.join(",");
-      setCookie("cart", items);
-      return;
-    }
+  if (currentCart == "") {
+    console.log("Cart already empty");
+    return;
   }
+  let items = currentCart.split(",");
+
+  // Check Each Pair Of Products To Find ID Of Product To Remove
+  for (let i = 0; i < items.length; i += 2) {
+    if (JSON.parse(`${items[i]}}`).id == id) {
+      // If There Is Only One Of The Product In Cart,
+      // Use items.splice To Remove The 2 Items At The Current Index (i) Of The Items Array
+      if (JSON.parse(`{${items[i + 1]}`).amount == 1) {
+        items.splice(i, 2);
+
+        // Use Same Logic As addToCart() To Rejoin Elemnt Pairs
+        // And Set New Cart Cookie Value
+        let JSONitems = [];
+        for (let j = 0; j < items.length; j += 2) {
+          let elems = [];
+          if (JSON.parse(`${items[j]}}`).id == id) {
+            elems = [items[j], `"amount":${items[j + 1]}}`];
+          } else {
+            elems = [items[j], items[j + 1]];
+          }
+          let item = elems.join(",");
+          JSONitems.push(item);
+        }
+        setCookie("cart", JSONitems, 0.04);
+
+      // If There Is More Than One Of The Product In Cart,
+      // Use The Same Logic As Increasing Amount In addToCart() But Decrement The Amount Value
+      // Before Rejoining The Element Pairs Into The New Cookie String
+      } else {
+      items[i + 1] = JSON.stringify(JSON.parse(`{${items[i + 1]}`).amount -= 1);
+        JSON.stringify(items[i + 1]);
+        let JSONitems = [];
+        for (let j = 0; j < items.length; j += 2) {
+          let elems = [];
+          if (JSON.parse(`${items[j]}}`).id == id) {
+            elems = [items[j], `"amount":${items[j + 1]}}`];
+          } else {
+            elems = [items[j], items[j + 1]];
+          }
+          let item = elems.join(",");
+          JSONitems.push(item);
+        }
+        setCookie("cart", JSONitems, 0.04);
+      }
+      if (currentClasses[1] === "cart") {
+        displayCart();
+      }
+      return;
+    } 
+  }
+
+  // If The Loop Has Completed Without Returning From The Function
+  // Log To Console That The Item To Remove Is Not Currently In The Cart
   console.log("item not found in current cart");
 }
 
+// Retrieve Data To Display On Cart Page From Cookie
 function displayCart() {
-  document.getElementById("currentCart").innerHTML = "";
   let itemString = getCookie("cart");
   if (itemString === "") {
+    document.getElementById("currentCart").innerHTML = "";
+    document.getElementById("checkout").innerHTML = `<div class="checkoutInfo"><h3>Total Price: €0.00</h3><p>Cart is currently empty</p></div>`;
     return;
   }
   let items = itemString.split(",");
-  items.forEach(id => {
+
+  // Initialise All Variables To Be Displayed On Page
+  let innerHTMLString = "";
+  let totalPrice = 0;
+
+  // For Each Object In Cookie string,
+  // Fetch The Relevant Product Details From The Products Array,
+  // Update The Total Cost Of The Cart 
+  // And Update The HTML String With The Product Details To Be Displayed
+  for (let i = 0; i < items.length; i += 2) {
+    let id = JSON.parse(`${items[i]}}`).id;
+    let amount = JSON.parse(`{${items[i + 1]}`).amount;
     let currentProduct = getProduct(id);
-    console.log("hi", currentProduct);
-    document.getElementById("currentCart").innerHTML += `<div id=\"comics\"><div class=\"container\"><img src=\"${currentProduct.image}\" class=\"comicImage\"><div class=\"comicInfo\"><h3>${currentProduct.title}</h3><h4>${currentProduct.price}</h4><p></p></div></div></div>`
-  });
+    totalPrice += (currentProduct.price * amount);
+    innerHTMLString += `<div class="container"><img src="${currentProduct.image}" class="cartImage"><div class="cartInfo"><h3>${currentProduct.title} x ${amount}</h3><h4>€${(currentProduct.price * amount).toFixed(2)}</h4><div class="cartButtons"><button onclick="addToCart(${id})\">Add To Cart</button><button onclick="removeFromCart(${id})">Remove From Cart</button></div></div></div><br><br>`
+  };
+
+  // End The HTML String With A Display For The Total Cost Of The User's Purchase And Display It
+  document.getElementById("currentCart").innerHTML = innerHTMLString;
+
+  innerHTMLString = `<div class="checkoutInfo"><h3>Total Price: €${totalPrice.toFixed(2)}</h3><button onclick="checkout(${totalPrice.toFixed(2)})">Checkout</button></div>`;
+
+  document.getElementById("checkout").innerHTML = innerHTMLString;
 }
 
 function resetCart() {
-  setCookie("cart", "", 0);
-  console.log(`Current cart: ${getCookie("cart")}`);
+  let cart = getCookie("cart");
+  let items = cart.split(",");
+  items.splice(0, items.length);
+  setCookie("cart", items, 0.4);
+  console.log(getCookie("cart"));
 }
 
-function viewCart() {
-  console.log(getCookie("cart"));
+function checkout(total) {
+  resetCart();
+  displayCart();
+  alert(`Thank you for your purchase of €${total}`);
 }
 
 // Filter Functions
@@ -174,17 +297,19 @@ function removeCookie(cname) {
 // Checks Cookies For Cart Contents and Light/Dark Mode
 
 window.onload = async function Initialize() {
-  console.log(getCookie("cart"));
   siteContent.className = `hidden ${currentClasses[1]}`;
   siteContent.className = `visible ${currentClasses[1]}`;
-  products = await fetchProducts();
+
   if (currentClasses[1] === "cart") {
+    products = await fetchProducts();
     displayCart();
   }
+
   if (document.cookie === "") {
     document.cookie = "darkMode:false;expires=Thur, 31 Dec 2099 23:59:59 UTC";
     return;
   }
+
   let status = getCookie("darkMode");
   if (status === "true") {
     mode.setAttribute("href", "./css/dark.css");
@@ -195,7 +320,7 @@ window.onload = async function Initialize() {
   }
 }
 
-// String Literals
+// String Literals For Filtered Displays
 
 const marvel1 = "<img src='./images/comics/AmazingFantasy15.jpg' class='comicImage'><div class='comicInfo'><h3 class='title'>Amazing Fantasy (1962) #15</h3><h4 class='price'>€59.99</h4><p>The First Appearance of the Amazing Spider-Man! When young Peter Parker gains remarkable abilities from a radioactive spider, he must step up and try to become a hero — while also dealing with the fantastic pressures of an everyday teenager! For with great power, there must also come great responsibility!</p><div class=\"cartButtons\"><button onclick=\"addToCart('1')\">Add To Cart</button><button onclick=\"removeFromCart('1')\">Remove From Cart</button></div></div>";
 const marvel2 = "<img src='./images/comics/InfinityGauntlet1.jpg' class='comicImage'><div class='comicInfo'><h3 class='title'>Infinity Gauntlet (1991) #1</h3><h4 class='price'>€29.99</h4><p>One of the biggest events ever to hit the Marvel Universe! For Thanos, the Infinity Gauntlet was the ultimate prize to be coveted above all else. With it came omnipotence. Now it's up to Earth's super heroes to make a desperate attempt to thwart this mad god's insane plunge into galactic self-destruction.</p><div class=\"cartButtons\"><button onclick=\"addToCart('2')\">Add To Cart</button><button onclick=\"removeFromCart('2')\">Remove From Cart</button></div></div>";

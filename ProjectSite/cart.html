@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link id="style" rel="stylesheet" href="./css/light.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="./images/favicon.png"/>
-    <title>HiveMind Comics</title>
-</head>
-<body>
-    <header>
-        <h1 id="pageTitle">
-            Cart
-        </h1>
-        
-        <div class="topnav" id="myTopnav">
-            <a href="index.html">Home</a>
-            <a href="comics.html">Comics</a>
-            <a href="games.html">Games</a>
-            <a href="events.html">Events</a>
-            <a href="cart.html" class="active">Cart</a>
-            <a href="javascript:void(0);" class="icon" onclick="openNav()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-    </header>
-    <div id="seperator"><br><br><br><br><br><br></div>
-    <main id="content" class="hidden cart">
-        <div id="currentCart" class="currentCart">
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link id="style" rel="stylesheet" href="./css/light.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" href="./images/favicon.png"/>
+        <title>HiveMind Comics</title>
+    </head>
+    <body>
+        <header>
+            <h1 id="pageTitle">
+                Cart
+            </h1>
             
-        </div>
-    </main>
-    <footer>
-        <div class="site-footer">
-            <button class="mode-toggle-day" aria-label="Light/Dark Mode Toggle">
-                ☼
-            </button>
-            <p>
-                &copy; Copyright 2025 - Hivemind Comics Ltd
-            </p>
-        </div>
-    </footer>
-    <script src="./scripts/main.js"></script>
-    <script src="./scripts/products.json"></script>
-</body>
+            <div class="topnav" id="myTopnav">
+                <a href="index.html">Home</a>
+                <a href="comics.html">Comics</a>
+                <a href="games.html">Games</a>
+                <a href="events.html">Events</a>
+                <a href="cart.html" class="active">Cart</a>
+                <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </header>
+        <div id="seperator"><br><br><br></div>
+        <main id="content" class="hidden cart">
+            <div id="currentCart" class="currentCart">
+            </div>
+            <div id="checkout" class="checkout">
+
+            </div>
+        </main>
+        <footer>
+            <div class="site-footer">
+                <button class="mode-toggle-day" aria-label="Light/Dark Mode Toggle">
+                    ☼
+                </button>
+                <p>
+                    &copy; Copyright 2025 - Hivemind Comics Ltd
+                </p>
+            </div>
+        </footer>
+        <script src="./scripts/main.js"></script>
+        <script src="./scripts/products.json"></script>
+    </body>
 </html>

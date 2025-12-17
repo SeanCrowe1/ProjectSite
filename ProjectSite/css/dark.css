@@ -1,5 +1,8 @@
 /* Universal Stylings */
 
+html {
+    height: 100%;
+}
 body {
     background-color: #042f4b;
     color: white;
@@ -270,9 +273,60 @@ p {
     transition: transform 0.15s ease-out;
 }
 
+/* Cart Page Stylings */
+
 .cart .container {
     justify-content: flex-start;
     align-content: space-evenly;
+}
+
+.cartInfo {
+    width: clamp(1000px, 60%, 1400px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    margin-left: 80px;
+}
+
+.cartInfo h3 {
+    font-size: 28px
+}
+
+.cartInfo h4 {
+    font-size: 22px;
+}
+
+.cartImage {
+    width: clamp(200px, 20%, 500px);
+}
+
+.checkout {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #666;
+}
+
+.checkoutInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkoutInfo p {
+    font-size: 25px;
+    font-weight: bold;
+
+}
+
+.checkoutInfo button {
+    width: clamp(250px, 20%, 500px);
+    aspect-ratio: 7 / 2;
+    padding: 10px;
+    margin: 25px;
+    font-size: 20px;
 }
 
 /* NavBar Stylings */
@@ -318,15 +372,60 @@ p {
   display: none;
 }
 
+/* Light/Dark Mode Stylings */
+
+.mode-toggle-day {
+    position: fixed;
+    background-color: #333333;
+    color: white;
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+    bottom: 0;
+    left: 0;
+}
+
+.mode-toggle-day:hover {
+    cursor: pointer;
+    background-color: #111111;
+}
+
+/* Site Footer */
+
+.site-footer {
+    position: static;
+    width: 98.34%;
+    padding: 0.5rem 1rem;
+    background: #033;
+    color: #ccc;
+    font-size: 0.9rem;
+    bottom: 0;
+}
+
+.site-footer p {
+    width: 98.34%;
+    text-align: center;
+}
+
+/* Responsive Styles For Smaller Screens */
+
 @media screen and (max-width: 1920px) {
     .comics .container {
         justify-content: center;
+    }
+
+    .site-footer {
+        width: 98.09%
     }
 }
 
 @media screen and (max-width: 1865px) {
     .games .container {
         justify-content: center;
+    }
+
+    .site-footer {
+        width: 98%
     }
 }
 
@@ -336,11 +435,27 @@ p {
     }
 }
 
+@media screen and (max-width: 1485px) {
+    .home .container {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1265px) {
+    .cart .container {
+        justify-content: center;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .comics .container {
         justify-content: center;
     }
     
+    .homeComicImage {
+        width: 100%;
+    }
+
     .comicImage {
         width: 100%;
     }
@@ -379,38 +494,4 @@ p {
         text-align: left;
         border-bottom: 0.1px solid #111;
     }
-}
-
-/* Light/Dark Mode Stylings */
-
-.mode-toggle-day {
-    position: fixed;
-    background-color: #333333;
-    color: white;
-    height: 50px;
-    width: 50px;
-    font-size: 30px;
-    bottom: 0;
-    left: 0;
-}
-
-.mode-toggle-day:hover {
-    cursor: pointer;
-    background-color: #111111;
-}
-
-/* Site Footer */
-
-.site-footer {
-    position: static;
-    width: 98.34%;
-    padding: 0.5rem 1rem;
-    background: #033;
-    color: #ccc;
-    font-size: 0.9rem;
-}
-
-.site-footer p {
-    width: 98.34%;
-    text-align: center;
 }

@@ -318,15 +318,59 @@ p {
     display: none;
 }
 
+/* Light/Dark Mode Stylings */
+
+.mode-toggle-day {
+    position: fixed;
+    background-color: white;
+    color:black;
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+    bottom: 0;
+    left: 0;
+}
+
+.mode-toggle-day:hover {
+    cursor: pointer;
+    background-color: #d1d1d1;
+}
+
+/* Site Footer */
+
+.site-footer {
+    position: static;
+    width: 98.34%;
+    padding: 0.5rem 1rem;
+    background: #0cc;
+    color: #222;
+    font-size: 0.9rem;
+}
+
+.site-footer p {
+    width: 98.34%;
+    text-align: center;
+}
+
+/* Responsive Styles For Smaller Screens */
+
 @media screen and (max-width: 1920px) {
     .comics .container {
         justify-content: center;
     }
+
+    .site-footer {
+        width: 98.09%;
+    }
 }
 
-@media screen and (max-width: 1730px) {
+@media screen and (max-width: 1865px) {
     .games .container {
         justify-content: center;
+    }
+
+    .site_footer {
+        width: 98%;
     }
 }
 
@@ -336,9 +380,19 @@ p {
     }
 }
 
+@media screen and (max-wdth: 1485px) {
+    .home .container {
+        justify-content: center;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .comics .container {
         justify-content: center;
+    }
+
+    .homeComicImage {
+        width: 100%;
     }
 
     .comicImage {
@@ -379,38 +433,4 @@ p {
         text-align: left;
         border-bottom: 0.1px solid black;
     }
-}
-
-/* Light/Dark Mode Stylings */
-
-.mode-toggle-day {
-    position: fixed;
-    background-color: white;
-    color:black;
-    height: 50px;
-    width: 50px;
-    font-size: 30px;
-    bottom: 0;
-    left: 0;
-}
-
-.mode-toggle-day:hover {
-    cursor: pointer;
-    background-color: #d1d1d1;
-}
-
-/* Site Footer */
-
-.site-footer {
-    position: static;
-    width: 98.34%;
-    padding: 0.5rem 1rem;
-    background: #0cc;
-    color: #222;
-    font-size: 0.9rem;
-}
-
-.site-footer p {
-    width: 98.34%;
-    text-align: center;
 }
