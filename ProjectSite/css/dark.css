@@ -398,6 +398,20 @@ p {
     font-size: 20px;
 }
 
+.checkoutInfo button:hover {
+    background-color: #999;
+    transition: background-color 0.25s ease-out;
+}
+
+.checkoutInfo button:not(:hover) {
+    background-color: #ccc;
+    transition: background-color 0.25s ease-out;
+}
+
+.checkoutInfo button:active {
+    background-color: #555
+}
+
 /* NavBar Stylings */
 
 .topnav {
@@ -407,6 +421,7 @@ p {
     z-index: 5;
     right: 0;
     top: 0;
+    transition: background-color 0.15s ease-out;
 }
 
 .topnav a {
@@ -426,15 +441,18 @@ p {
 .topnav a:hover {
     background-color: #111111;
     color: white;
+    transition: background-color 0.15s ease-out;
 }
 
 .topnav a.active {
     background-color: #04AA6D;
     color: white;
+    transition: background-color 0.15s ease-out;
 }
 
 .topnav a.active:hover {
     background-color: #02AA6D;
+    transition: background-color 0.15s ease-out;
 }
 
 .topnav .icon {
