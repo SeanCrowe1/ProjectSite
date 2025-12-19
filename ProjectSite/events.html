@@ -37,8 +37,8 @@
             <img src="./images/events/ComicCon.jpg" alt="Picture of Cosplayers dressed as a collection of characters at a Comic-Con event" class="eventImage"/>
             <div class="eventInfo">
                 <h3>Comic-Con 2026</h3>
-                <h4>31/05/2026</h4>
-                <p>Join us for our comic-con 2026 event in May. Thanks.</p>
+                <h4>29/05/2026</h4>
+                <p>Join us for our Comic-Con 2026 event on the 29th of May, 2026,  in which comic book fans gather to meet creators, experts, and each other. We will have a costume contest with prizes for the 3 best costumes in attendance and some guest speakers including Marvel's own Spider-Men, Tobey Maguire, Andrew Garfield, and Tom Holland.</p>
             </div>
         </div>
         <br><br>
@@ -47,7 +47,7 @@
             <div class="eventInfo">
                 <h3>Dungeons & Dragons Tournament</h3>
                 <h4>28/02/2026</h4>
-                <p>Come and battle friends and foes alike in our 3rd annual Dungeons & Dragons Battle Royale Tournament</p>
+                <p>Our 3rd annual Dungeons & Dragons (D&D) Tournament will be held on the 28th of February, 2026,  where multiple teams of players will run through the same pre-written  series of challenges, and are scored based on their performance. The goal is to determine which team completes objectives most effectively within a time limit. If you think you are up to the challenge, come down before 12:00 noon on the day of the tournament and enter the battle.</p>
             </div>
         </div>
         <br><br>
@@ -56,7 +56,7 @@
             <div class="eventInfo">
                 <h3>Warhammer 40K Tournament</h3>
                 <h4>21/02/2026</h4>
-                <p>Come and battle friends and foes alike in our 5th annual Warhammer 40,000 Battle Bracket</p>
+                <p>We are delighted to announce thata Warhammer 40,000 tournament is going to be held in our store for the first time ever on the 21st of February, 2026. This will be a competitive event where players use their custom-built and painted miniature armies to play multiple rounds of the tabletop game in a structured format. The events combine strategic gaming skill with a celebration of the hobby's modelling and painting aspects. There will also be a mnifigure painting workshop on the 20th of February for any newcomers who would like some guidance on getting set up or veterans who just want to touch up their moddles before the war.</p>
             </div>
         </div>
         <br><br>
@@ -65,15 +65,21 @@
                 <p>Please fill in the below form to register interest in our events and receive update emails about any future events being held</p>
             </div>
             <div class="eventForm">
-                <form id="eventForm">
+                <form id="eventForm" onsubmit="submitForm()">
                     <label for="nameInput">Enter your name:</label>
-                    <input id="nameInput" type="text" placeholder="Enter your name here" required>
+                    <input id="nameInput" type="text" value="" placeholder="Enter your name here" required>
                     <label for="emailInput">Enter your email:</label>
-                    <input id="emailInput" type="email" placeholder="You@Mail.com" required>
+                    <input id="emailInput" type="email" value="" placeholder="You@Mail.com" required>
                     <label for="ageInput">Enter your age:</label>
-                    <input id="ageInput" type="number" placeholder="Enter your age here" required>
+                    <input id="ageInput" type="number" value="" placeholder="Enter your age here" required>
                     <input type="submit" value="Register Interest">
                 </form>
+            </div>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <p>Some text in the Modal..</p>
+                </div> 
             </div>
         </div>
     </main>

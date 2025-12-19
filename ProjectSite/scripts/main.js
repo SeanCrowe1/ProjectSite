@@ -5,6 +5,18 @@ const mode = document.getElementById('style');
 const siteContent = document.getElementById('content');
 const currentClasses = siteContent.className.split(" ");
 
+let modal;
+let span;
+let form;
+
+if (currentClasses[1] === "cart" || currentClasses[1] === "events") {
+  modal = document.getElementById("myModal");
+  span = document.getElementsByClassName("close")[0];
+  if (currentClasses[1] === "events") {
+    form = document.getElementById("eventForm");
+  }
+}
+
 // Responsive NavBar Functionality
 function openNav() {
   let x = document.getElementById("myTopnav");
@@ -182,7 +194,7 @@ function displayCart() {
     let amount = JSON.parse(`{${items[i + 1]}`).amount;
     let currentProduct = getProduct(id);
     totalPrice += (currentProduct.price * amount);
-    innerHTMLString += `<div class="container"><img src="${currentProduct.image}" alt="Final product image of ${currentProduct.title}" class="cartImage"><div class="cartInfo"><h3>${currentProduct.title} x ${amount}</h3><h4>€${(currentProduct.price * amount).toFixed(2)}</h4><div class="cartButtons"><button onclick="addToCart(${id})\">Add To Cart</button><button onclick="removeFromCart(${id})">Remove From Cart</button></div></div></div><br><br>`
+    innerHTMLString += `<div class="container"><img src="${currentProduct.image}" alt="Final product image of ${currentProduct.title}" class="cartImage"><div class="cartInfo"><h3>${currentProduct.title} &times; ${amount}</h3><h4>€${(currentProduct.price * amount).toFixed(2)}</h4><div class="cartButtons"><button onclick="addToCart(${id})\">Add To Cart</button><button onclick="removeFromCart(${id})">Remove From Cart</button></div></div></div><br><br>`
   };
 
   // End The HTML String With A Display For The Total Cost Of The User's Purchase And Display It
@@ -201,19 +213,56 @@ function resetCart() {
   console.log(getCookie("cart"));
 }
 
-function checkout(total) {
-  resetCart();
-  displayCart();
-  alert(`Thank you for your purchase of €${total}`);
+// Modal Functions For Checkout
+
+if (currentClasses[1] === "cart") {
+  function checkout(total) {
+    modal.style.display = "block";
+    modal.innerHTML = `<div class="modal-content"><span class="close" onclick="closeModal()">&times;</span><p>Thank you for your purchase of €${total.toFixed(2)}</p></div>`
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+    resetCart();
+    displayCart();
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
 }
 
-// Event Form Function
-
+// Event Form Functions
 if (currentClasses[1] === "events") {
-  document.getElementById("eventForm").addEventListener("submit", () => {
-    const elem = document.getElementById("popUp");
-    elem.style.display = "block";
-  }, false)
+  if (form) {
+    function submitForm() {
+      event.preventDefault();
+      let name = document.getElementById("nameInput").value;
+      let age = document.getElementById("ageInput").value;
+      let email = document.getElementById("emailInput").value;
+
+      if (age < 18) {
+        modal.style.display = "block";
+        modal.innerHTML = `<div class="modal-content"><span class="close" onclick="closeModal()">&times;</span><p>Thank you for registering your interest with us ${name}.<br>Unfortunately, some of our events are intended for a mature audience, but we will notify you as future age-appropriate events are announced at ${email}.</p></div>`
+      } else {
+        modal.style.display = "block";
+        modal.innerHTML = `<div class="modal-content"><span class="close" onclick="closeModal()">&times;</span><p>Thank you for registering your interest with us ${name}.<br>As future events are announced we will notify you at ${email}.</p></div>`
+      }
+    }
+  }
+
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
 }
 
 // Filter Functions
